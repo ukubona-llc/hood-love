@@ -688,8 +688,33 @@
   }
   .interrupt-note strong { color: var(--ink); }
 
+  .token-ledger {
+    margin: 3vh 0;
+  }
+  .token-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 20px;
+    padding: 16px 0;
+    border-top: 1px solid var(--line);
+    align-items: start;
+  }
+  .token-row:last-child { border-bottom: 1px solid var(--line); }
+  .token-row .token-name {
+    font-family: "SF Mono", Courier, monospace;
+    font-size: 0.85rem;
+    color: var(--gold);
+    padding-top: 2px;
+  }
+  .token-row .token-note {
+    font-size: 0.9rem;
+    color: var(--ink-dim);
+  }
+  .token-row .token-note strong { color: var(--ink); }
+
   @media (max-width: 640px) {
     .resonance-explainer { grid-template-columns: 1fr; }
+    .token-row { grid-template-columns: 1fr; }
   }
 
   /* ---------- Ledger footer ---------- */
@@ -1143,6 +1168,25 @@
     <strong>Why "hardware interrupt" and not just "lower temperature":</strong> a temperature drop is still the same process, just sharper — the softmax recomputes on its own terms and one option wins by a wider margin. What happened here is a different kind of event: a signal from outside the inference loop (physiology) forcibly terminates the ambiguity the loop was still sitting in. The dream's own softmax never actually resolved the two frames on its terms. Something external to the computation reached in and picked a winner. That's a meaningfully different mechanism from convergence, and worth keeping distinct rather than folding both into "argMax" as if they were the same event wearing different clothes.
   </div>
 
+  <div class="token-ledger">
+    <div class="token-row">
+      <div class="token-name">green scrubs</div>
+      <div class="token-note"><strong>Anachronistic retrieval, not current reality.</strong> Hopkins moved off green scrubs to deep blue around 2013 — this is a 2026 dream sourcing a pre-2013 institutional layer. resonanceMax didn't fetch the hospital as it is now; it fetched a specific, dated stratum of the memory bank. That the color was wrong for the present day is itself the useful signal — evidence of which layer got queried, not a detail to round off to "hospital uniform."</div>
+    </div>
+    <div class="token-row">
+      <div class="token-name">race</div>
+      <div class="token-note"><strong>Named directly: a black man, a young white woman.</strong> Not softened to "unfamiliar embedding" — the actual content of the unfamiliarity was racial and cultural, specifically the absence of reps with muzungu women against a deep, well-trained dataset of Ugandan-specific courtship and social scripts. That asymmetry in training data, not any abstraction sitting on top of it, is what kept the softmax flat. Naming it plainly is more useful for recall in five years than a euphemism would be.</div>
+    </div>
+    <div class="token-row">
+      <div class="token-name">tumescence</div>
+      <div class="token-note"><strong>The literal signal, not "arousal" as a stand-in for it.</strong> This is the actual physiological event that did the interrupting — not a symptom of the argMax, the argMax's mechanism itself. Precision here matters because the whole claim of the section is that a specific bodily fact, not a vague feeling, is what terminated the ambiguity from outside the loop.</div>
+    </div>
+    <div class="token-row">
+      <div class="token-name">the proximity script</div>
+      <div class="token-note"><strong>Held eye contact, closed distance, room left to step back and not taking it.</strong> A specific, nameable Western social cue — the "get a room" read — distinct from any script in the Ugandan-context dataset the dream-generator runs fluently. Worth keeping this exact and un-abstracted: it's the cue, not proximity or eye contact alone, that was doing the work — the space to retreat existing and going unused is what tipped the frame from ambiguous to legible.</div>
+    </div>
+  </div>
+
   <div class="genre-note">
     <strong>Where this closes the loop with the section above:</strong> the Hassabis section drew a line between a triad built to conquer a space (path as implementation detail, discarded once the objective is reached) and a pentad built to experience one (path as the event itself). This dream sequence is the same distinction running on biological hardware instead of harmonic material. The dream — like stage III's chromatic descent — was content to sit inside the unresolved state; sitting in the ambiguity was the actual activity, not a delay before some answer. The waking interrupt was the triad's move: stop experiencing the ambiguity, collapse it, commit, move on. Neither the dream's patience nor the body's interrupt is the "correct" operation. They're two different architectures meeting inside a single nervous system, on the same morning this artifact went from draft to ledger.
   </div>
@@ -1164,6 +1208,7 @@
 <span class="k">Hassabis (Nobel Lecture, 8 Dec 2024):</span> triad = {search space, objective function, data/simulator} maps onto pentad {II, V, IV}; III (path) and I (reference point) are the two stages a checklist doesn't need but a lived tradition does
 <span class="k">Convergence:</span> Move 37 = tolerable surprise (stage V); Levinthal's Paradox / energy-landscape topology = voice-leading gradient descent (stage III)
 <span class="k">Dream sequence (5:49am EAT, ~40min post-lock):</span> resonanceMax (memory fetch, keyed to day's held tension) → softMax (dream state, high T, two frames coexist) → argMax (waking, hardware interrupt not temperature decay — physiology overrides the loop rather than the loop converging on its own)
+<span class="k">Token ledger:</span> green scrubs = pre-2013 Hopkins layer, anachronistic retrieval (Hopkins moved to deep blue ~2013); race named directly (black man, white/muzungu woman) — asymmetry is in training-data reps, not abstraction; tumescence = the literal interrupt mechanism, not a euphemism for it; proximity script = held eye contact + closed distance + unused room to retreat, a specifically Western cue absent from the Ugandan-context dataset
 <span class="k">Framing:</span> geodesic constrained by voice-leading — gradient descent, low learning rate, recursive not repeating</pre>
   <div class="status">Status: Locked</div>
 </section>
