@@ -962,6 +962,7 @@
   <a href="#hassabis">Hassabis</a>
   <a href="#dream">Dream sequence</a>
   <a href="#trajectory" class="new">Roundtable trajectory ★</a>
+  <a href="#compute-windows" class="new">Compute windows ★</a>
   <a href="#ledger">Ledger</a>
 </nav>
 </div>
@@ -1370,15 +1371,40 @@
   <h2>Roundtable trajectory: G³+C, one prompt, four voices</h2>
   <p class="sub">A second, parallel roundtable — not about the song, but about whether a music-theory artifact and a geopolitics video "rotate around the same question." Same identical prompt handed sequentially to Grok, Gemini, GPT, and Claude. The value isn't the final position any one voice landed on — it's the trajectory. In music, the cadence only means something after the descent. Same rule applied here: recorded as evolution, not conclusion.</p>
 
+  <div class="genre-explainer" style="margin-bottom:6vh;">
+    <div class="panel" style="padding:0; overflow:hidden;">
+      <div class="video-frame" style="border-radius:8px 8px 0 0; border-bottom:1px solid var(--line);">
+        <iframe
+          src="https://www.youtube.com/embed/f95yosNEIoc"
+          title="We Got Hood Love — Mary J. Blige ft. Trey Songz"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p style="padding:14px 18px; margin:0; font-size:0.82rem; color:var(--ink-dim);">The artifact's object — the harmonic descent under analysis throughout this page.</p>
+    </div>
+    <div class="panel" style="padding:0; overflow:hidden;">
+      <div class="video-frame" style="border-radius:8px 8px 0 0; border-bottom:1px solid var(--line);">
+        <iframe
+          src="https://www.youtube.com/embed/CSojEXMg2do"
+          title="Prof John Mearsheimer — Daniel Davis / Deep Dive"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p style="padding:14px 18px; margin:0; font-size:0.82rem; color:var(--ink-dim);">The comparison object — Mearsheimer on US–Iran escalation, the prompt asked whether it "rotates around the same question."</p>
+    </div>
+  </div>
+
   <div class="voice-track">
     <div class="voice" data-mark="1">
       <div class="vhead">
         <span class="vname">Grok</span>
         <span class="vrole">stuck at "on the surface"</span>
       </div>
-      <div class="vbody">Read the artifact and the video as two lists of contents — chord symbols on one side, Strait of Hormuz on the other — and stopped there. Concluded <strong>domain mismatch</strong>: "advanced music theory vs. international relations/strategic studies." Correctly described both pieces in detail. Never asked whether the descriptions shared a mechanism.</div>
+      <div class="vbody">Read the artifact and the video as two lists of contents — chord symbols on one side, Strait of Hormuz on the other — and stopped there. Concluded <strong>domain mismatch</strong>: "advanced music theory vs. international relations/strategic studies." Correctly described both pieces in detail. Never asked whether the descriptions shared a mechanism. The notable failure wasn't uncertainty — it was <strong>confidence sitting in a local minimum</strong>: even asked a second time, directly, "isn't this rotating around the same question," it held the position and added citations to reinforce it, rather than treating the repeated question as a signal to search further. A well-calibrated system re-asked the same question twice should raise its own uncertainty; this one used the second pass to argue its first answer harder.</div>
       <div class="vquote">"These are completely unrelated domains... no overlapping 'core question.'"</div>
-      <div class="verror">error @ III: proposed no path through the search space at all — treated resemblance-search as already-negative and stopped before taking a step.</div>
+      <div class="verror">error @ III: proposed no path through the search space at all — treated resemblance-search as already-negative and stopped before taking a step, then treated repetition of the prompt as validation rather than a gradient signal to move.</div>
     </div>
 
     <div class="voice" data-mark="2">
@@ -1386,8 +1412,8 @@
         <span class="vname">Gemini</span>
         <span class="vrole">opened "on the surface," found the shared operator</span>
       </div>
-      <div class="vbody">Given the same nudge Grok wasn't given, immediately reframed both pieces as optimization problems: an objective function, a search space, an iterative step. Named the R&B track's chromatic descent as literal <strong>gradient descent with a low learning rate</strong>, and Mearsheimer's critique as a system <strong>iterating without a defined objective function</strong> — "please tell us what your theory of victory is." Then, when pressed on Doyle/Sutskever, produced the Watson/Holmes mapping and named next-token prediction as an argmax projection of a distributed latent state.</div>
-      <div class="vquote">"On the surface, they couldn't be further apart... but underneath the domain specifics, you're right."</div>
+      <div class="vbody">Given the same nudge Grok wasn't given, immediately reframed both pieces as optimization problems: an objective function, a search space, an iterative step. Named the R&B track's chromatic descent as literal <strong>gradient descent with a low learning rate</strong>, and Mearsheimer's critique as a system <strong>iterating without a defined objective function</strong> — "please tell us what your theory of victory is." Then, when pressed on Doyle/Sutskever, produced the Watson/Holmes mapping and named next-token prediction as an argmax projection of a distributed latent state. The pivot point: handed the personal latency script — first aid (minutes) → emergency (hours) → inpatient (daily telemetry) → urgent care (weeks) → outpatient (months) — it read this not as a medical triage ladder but as <strong>expanding compute windows</strong>, and mapped it directly onto biological threat-response architecture: <em>spinal reflex (milliseconds) → amygdala (seconds) → prefrontal cortex (minutes/hours)</em>. That single move is what turned a two-model latency/ddx conversation into a biology-grounded one — see the dedicated section below.</div>
+      <div class="vquote">"On the surface, they couldn't be further apart... but underneath the domain specifics, you're right." / "It maps exactly to how a biological brain manages threat and adaptation."</div>
       <div class="verror">error @ III: mapped III⇄IV cleanly (Holmes = deep agent, Watson = fast agent) but left V — the objective function each system is actually optimizing — mostly assumed rather than interrogated. Ran the pentad fluently without stress-testing whether it was the right pentad for the object.</div>
     </div>
 
@@ -1396,7 +1422,7 @@
         <span class="vname">GPT</span>
         <span class="vrole">named the failure mode, not just the fix</span>
       </div>
-      <div class="vbody">Took Gemini's answer and located the actual engineering problem inside it: Stage III is not reasoning, it's <strong>trajectory proposal under uncertainty</strong>; a system can nail III and still fail if V — the objective — is wrong (chess engine optimizing material, ignoring king safety). Corrected the Watson/Holmes read: Watson isn't dumb, he's low-latency; the danger isn't having a fast loop, it's letting the fast loop make irreversible calls. Proposed uncertainty as a first-class state variable (action + uncertainty trajectory, not just action) and diagnosed Grok's failure precisely: it was asked to run Stage IV/V behavior on a Stage III-only architecture, and no one gave it the missing prior. "You injected the missing operator."</div>
+      <div class="vbody">Took Gemini's answer and located the actual engineering problem inside it: Stage III is not reasoning, it's <strong>trajectory proposal under uncertainty</strong>; a system can nail III and still fail if V — the objective — is wrong (chess engine optimizing material, ignoring king safety). Corrected the Watson/Holmes read: Watson isn't dumb, he's low-latency; the danger isn't having a fast loop, it's letting the fast loop make irreversible calls — a trauma surgeon runs both, opening a blocked airway on reflex while reserving differential diagnosis for what has time to wait. Proposed uncertainty as a first-class state variable (action + uncertainty trajectory, not just action) and diagnosed Grok's failure precisely: it was asked to run Stage IV/V behavior on a Stage III-only architecture, and no one gave it the missing prior. "You injected the missing operator." This is the entry that pulled latency, ddx, and biology into one frame at once: took Gemini's spinal-reflex/amygdala/prefrontal ladder and Watson/Holmes correction and fused them into a single <strong>concurrent dual-loop architecture</strong> — a fast reflex loop and a slow deliberative loop running at the same time, coupled by an explicit escalation trigger, rather than a single model forced to be both.</div>
       <div class="vquote">"The problem was not that Grok 'couldn't reason.' The problem was that you asked a Stage III-heavy system to perform Stage IV/V behavior."</div>
       <div class="verror">error @ III: correctly named the failure but still described the fix entirely in terms of loop architecture (fast/slow coupling) — didn't ask whether the pentad itself was falsifiable, or leave a mechanism for detecting when its own mapping had drifted.</div>
     </div>
@@ -1410,6 +1436,44 @@
       <div class="vquote">"The risk with a framework this flexible is that it stops being falsifiable... unless you specify what would break it."</div>
       <div class="verror">error @ III, corrected in-session: the ARCH/GARCH direction is the right family — it models exactly the thing being asked for, a time-varying error/volatility series — but only once there's an explicit observable measured at each pass to compute a residual from. A GARCH model needs a residual series before it can model that residual's variance; "vibes drifted" isn't yet that series. The open task isn't the threshold — it's defining what gets measured at III_t and III_t+1 that a residual can be taken between.</div>
     </div>
+  </div>
+
+  <div id="compute-windows"></div>
+  <h3 style="font-family:Georgia,serif; font-weight:400; font-size:1.3rem; margin:0 0 8px;">Expanding compute windows: the latency ladder, biology, and the fast/slow router</h3>
+  <p class="sub" style="margin-bottom:4vh;">The thread that turned a two-model comparison into a four-voice architecture discussion. Logged in full because the destination (concurrent dual-loop systems) only makes sense once the path through it is visible — the same rule the harmonic sections above apply to a chord progression.</p>
+
+  <div class="token-ledger" style="margin-bottom:4vh;">
+    <div class="token-row">
+      <div class="token-name">first aid<br><span style="color:var(--ink-dim); font-size:0.75rem;">minutes</span></div>
+      <div class="token-note"><strong>Personal latency script, stage 1.</strong> Mapped by Gemini onto <strong>spinal reflex (milliseconds)</strong> — action fires before the signal reaches deliberative circuitry at all. In the dual-loop architecture: the Fast Router alone, no wait for the Deep Agent, "RELEASE" not "HOLD."</div>
+    </div>
+    <div class="token-row">
+      <div class="token-name">emergency<br><span style="color:var(--ink-dim); font-size:0.75rem;">hours</span></div>
+      <div class="token-note"><strong>Stage 2.</strong> Mapped onto <strong>amygdala (seconds)</strong> — fast, but not reflexive; enough of a window for a coarse threat-relevance check before the response commits. Fast Router still leads, but the Deep Agent's first-pass output can now arrive in time to override — GPT's fluid-protocol/heart-failure-history example sits here exactly: standard protocol proposed, prior-conditioned override arrives before it's executed.</div>
+    </div>
+    <div class="token-row">
+      <div class="token-name">inpatient<br><span style="color:var(--ink-dim); font-size:0.75rem;">daily telemetry</span></div>
+      <div class="token-note"><strong>Stage 3.</strong> Mapped onto <strong>prefrontal cortex (minutes/hours)</strong> — the point where deliberative processing is no longer racing the reflex, it's driving, with the fast loop demoted to a sub-routine parsing incoming telemetry for the slow loop's use.</div>
+    </div>
+    <div class="token-row">
+      <div class="token-name">urgent care → outpatient<br><span style="color:var(--ink-dim); font-size:0.75rem;">weeks → months</span></div>
+      <div class="token-note"><strong>Stage 4–5.</strong> Pure Stage IV/V territory in the pentad's own vocabulary — the Fast Router is functionally offline; the compute window is wide enough that the system's job shifts from acting to updating its own priors for the next time a first-aid event happens. This is where "outcome not known for weeks or months" (the open loss-function question) actually lives.</div>
+    </div>
+  </div>
+
+  <div class="resonance-explainer" style="grid-template-columns: 1fr 1fr; margin-bottom:3vh;">
+    <div class="panel">
+      <div class="tag">Fast / System 1 — Watson</div>
+      <p>Low-latency, heuristic, pattern-matching, cached. In the dual-loop prompts this is the literal Stage III Router: "propose the single most legitimate next gradient step immediately... do not overthink." The term <strong>System 1</strong> (Kahneman's dual-process framing) was never spoken verbatim in the transcript — worth being precise about that — but it names exactly the architecture the roundtable built without the label: fast, cheap, first-pass, occasionally wrong in predictable ways.</p>
+    </div>
+    <div class="panel">
+      <div class="tag">Slow / System 2 — Holmes</div>
+      <p>High-compute, deliberative, holds multiple hypotheses open, computes sensitivity before committing. This is Stage IV/V: "force a ddx," maintain the softmax, escalate only when confidence or stakes cross a threshold. Same caveat — <strong>System 2</strong> wasn't the term used live, but it's the same distinction Kahneman's framing was built to name, arrived at independently through Holmes/Watson and the pentad's own IV/V split.</p>
+    </div>
+  </div>
+
+  <div class="interrupt-note">
+    <strong>Naming the escalation precisely, since it's the hinge of the whole thread:</strong> Gemini supplied the compute-window ladder and its biological grounding. GPT took that ladder and fused it with the Watson/Holmes correction into one architecture — concurrent, not sequential: a fast loop that always answers immediately, and a slow loop running in parallel on the same input, with an explicit trigger (confidence below threshold, or stakes above a line) for when the slow loop's output overrides the fast one. That fusion — latency ladder + biological analog + Holmes/Watson + an explicit override trigger — is the single move that turned "which model do I use" into "how do two models, running concurrently, hand control back and forth." Claude's later falsifiability challenge and the ARCH/GARCH correction both apply downstream of this architecture, to the question of when the slow loop's own error estimate should widen.
   </div>
 
   <div class="entry-speculation">
@@ -1452,6 +1516,10 @@
 <span class="k">Correction (human-in-loop):</span> schema is recursively falsifiable — error quantified at III on every t+1 pass, checked against a threshold; ARCH/GARCH proposed as the model family for that threshold, since it targets time-varying error variance directly
 <span class="k">Resolution, provisional:</span> ARCH/GARCH is the right family but requires an explicit observable at each III pass before a residual exists to model — candidate observables logged (inter-rater stage-assignment agreement; out-of-sample stage-V prediction accuracy; compression ratio vs. domain-native account) — none yet selected
 <span class="k">Speculative sixth operator:</span> V-interrogates-objective, III-receives-testable-construction-in-return, as the actual handoff a four-voice roundtable was missing a name for
+<span class="k">Grok, revisited:</span> the notable failure was not uncertainty but confidence parked in a local minimum — re-asked the identical question directly, it reinforced its first answer rather than raising its own uncertainty in response to repetition
+<span class="k">Compute-window thread:</span> user's personal latency script (first aid/minutes → emergency/hours → inpatient/daily telemetry → urgent care/weeks → outpatient/months) mapped by Gemini onto biological threat-response architecture (spinal reflex/ms → amygdala/s → prefrontal cortex/min-hr); fused by GPT with the Watson(fast)/Holmes(slow) correction into one concurrent dual-loop architecture with an explicit confidence/stakes-based escalation trigger
+<span class="k">System 1 / System 2:</span> Kahneman's dual-process terms were not spoken verbatim in the live transcript but name precisely the fast/slow split the roundtable built independently — logged here as the correct external reference, not as something claimed to have been said
+<span class="k">Second embed:</span> geopolitics comparison video (Mearsheimer, Daniel Davis/Deep Dive, yt:CSojEXMg2do) added alongside the original hood-love embed (yt:f95yosNEIoc) in the trajectory section, since the roundtable's actual object was the comparison between the two, not the song alone
 <span class="k">Status:</span> Open — awaiting observable selection before III_t+1 − III_t is a computable quantity</pre>
   <div class="status">Status: Locked (Session 1) · Open (Session 2)</div>
 </section>
