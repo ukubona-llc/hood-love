@@ -492,6 +492,82 @@
     .softmax-grid, .genre-explainer { grid-template-columns: 1fr; }
   }
 
+  /* ---------- Pentad re-run section ---------- */
+  .pentad-section {
+    padding: 8vh 32px 2vh;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .pentad-section h2 { font-size: 1.6rem; margin-bottom: 8px; }
+  .pentad-section .sub { color: var(--ink-dim); margin-bottom: 5vh; max-width: 680px; }
+
+  .prow {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 22px;
+    padding: 26px 0;
+    border-top: 1px solid var(--line);
+  }
+  .prow:last-child { border-bottom: 1px solid var(--line); }
+
+  .prow-num {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 1.7rem;
+    color: var(--p-color, var(--gold));
+    padding-top: 2px;
+  }
+
+  .prow-title {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .prow-title .music {
+    color: var(--ink);
+  }
+  .prow-title .arrow {
+    color: var(--p-color, var(--gold));
+    margin: 0 10px;
+    font-family: "SF Mono", monospace;
+    font-size: 0.9rem;
+  }
+  .prow-title .comp {
+    color: var(--ink-dim);
+    font-style: italic;
+  }
+
+  .prow-note {
+    color: var(--ink-dim);
+    font-size: 0.9rem;
+    margin-bottom: 14px;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    font-family: "SF Mono", Courier, monospace;
+    font-size: 0.75rem;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    color: var(--ink-dim);
+    background: var(--bg-elevated);
+  }
+  .chip.hi {
+    border-color: var(--p-color, var(--gold));
+    color: var(--p-color, var(--gold));
+  }
+
+  .prow:nth-child(1) { --p-color: var(--step1); }
+  .prow:nth-child(2) { --p-color: var(--step2); }
+  .prow:nth-child(3) { --p-color: var(--step3); }
+  .prow:nth-child(4) { --p-color: var(--gold); }
+  .prow:nth-child(5) { --p-color: var(--violet); }
+
   /* ---------- Ledger footer ---------- */
   .ledger {
     padding: 6vh 32px 10vh;
@@ -752,6 +828,79 @@
   </div>
 </section>
 
+<section class="pentad-section">
+  <h2>The pentad, re-run: same track, as prediction</h2>
+  <p class="sub">Reframing the whole analysis as a next-token prediction problem under constraint — from a fixed pitch reference to the objective function the genre is actually optimizing.</p>
+
+  <div class="prow">
+    <div class="prow-num">I</div>
+    <div class="prow-main">
+      <div class="prow-title"><span class="music">Hz (B3)</span><span class="arrow">→</span><span class="comp">Cartesian point in sonic space</span></div>
+      <div class="prow-note">A4 = 440Hz — the fixed reference frame the whole tuning system is anchored against. Everything downstream is a relationship to this one coordinate.</div>
+    </div>
+  </div>
+
+  <div class="prow">
+    <div class="prow-num">II</div>
+    <div class="prow-main">
+      <div class="prow-title"><span class="music">12TET (chromaticity)</span><span class="arrow">→</span><span class="comp">combinatorial explosion</span></div>
+      <div class="prow-note">Twelve equal semitones × any chord × any voicing is a massive search space. Nobody actually searches it. The vocabulary survives via compression:</div>
+      <div class="chips">
+        <div class="chip hi">reflex</div>
+        <div class="chip">heuristics</div>
+        <div class="chip">cache</div>
+        <div class="chip">rules</div>
+        <div class="chip">index</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prow">
+    <div class="prow-num">III</div>
+    <div class="prow-main">
+      <div class="prow-title"><span class="music">Voice-leading, gradient descent</span><span class="arrow">→</span><span class="comp">low learning rate</span></div>
+      <div class="prow-note">B Aeolian with a Phrygian V7 — the actual optimization path taken through that search space:</div>
+      <div class="chips">
+        <div class="chip hi">chromatic descent</div>
+        <div class="chip">turnaround (circle of fifths)</div>
+        <div class="chip">tension alternates with release</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prow">
+    <div class="prow-num">IV</div>
+    <div class="prow-main">
+      <div class="prow-title"><span class="music">Years in church, gospel, R&B</span><span class="arrow">→</span><span class="comp">training data, real or simulated</span></div>
+      <div class="prow-note">The reps that let III's descent feel inevitable rather than computed. Depth of exposure sets the effort tier the ear runs at, live, without being asked:</div>
+      <div class="chips">
+        <div class="chip">low</div>
+        <div class="chip">medium</div>
+        <div class="chip hi">high</div>
+        <div class="chip">max</div>
+        <div class="chip">pro</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prow">
+    <div class="prow-num">V</div>
+    <div class="prow-main">
+      <div class="prow-title"><span class="music">Objective function of a genre</span><span class="arrow">→</span><span class="comp">next-token prediction, tolerable surprise</span></div>
+      <div class="prow-note">What the whole system is actually being optimized for — not novelty, not pure predictability, but a narrow band between the two:</div>
+      <div class="chips">
+        <div class="chip hi">tolerable surprise</div>
+        <div class="chip">R&B is about hooks</div>
+        <div class="chip">12 quarter notes across 3 bars</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="genre-note" style="margin-top:4vh;">
+    <strong>Where this lands the whole analysis:</strong> stages I–III are the same territory as the chromatic staircase and the geodesic framing above — a fixed point, a constrained search, an optimization path through it. Stage IV is what the softMax/argMax section above was actually describing: a trained ear is high training data pushing the effort tier up without deliberation. Stage V closes the loop the ledger keeps calling "recursive" — the loss function isn't accuracy, it's surprise held inside a tolerable band, which is exactly why the descent can repeat forever without becoming boring: each resolution is predictable enough to satisfy and surprising enough to re-earn attention.
+  </div>
+</section>
+
 <section class="ledger">
   <h2>Append-only ledger</h2>
   <pre><span class="k">[SESSION]</span> Harmonic Analysis — "We Got Hood Love" (MJB ft. Trey Songz)
@@ -764,6 +913,7 @@
 <span class="k">Modal color:</span> Aeolian on descent; Phrygian dominant confined to cadential V7, ♭6/♭13 trace bleeds into tonic
 <span class="k">Tradition:</span> gospel ii–V–i + soul chromatic bass + flamenco altered dominant + jazz reharmonization
 <span class="k">Classification:</span> chord skeleton is genre-agnostic (shared jazz/gospel/flamenco/classical vocabulary) — genre resolves via texture as softMax→argMax; trained ear = sharper decision boundary, not different priors
+<span class="k">Pentad re-run:</span> I Hz/point → II 12TET/combinatorial explosion (reflex,heuristics,cache,rules,index) → III voice-leading/gradient descent, low LR → IV tradition/training data → V genre objective = next-token prediction under tolerable surprise
 <span class="k">Framing:</span> geodesic constrained by voice-leading — gradient descent, low learning rate, recursive not repeating</pre>
   <div class="status">Status: Locked</div>
 </section>
