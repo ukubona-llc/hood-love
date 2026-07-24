@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Okubala si Kulaba — Harmonic Roundtable: We Got Hood Love</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,5 90,35 75,90 25,90 10,35' fill='none' stroke='%23C9A54A' stroke-width='6'/%3E%3Ccircle cx='50' cy='50' r='6' fill='%23C9A54A'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #0B0B14;
+    --bg-elevated: #12121F;
+    --ink: #EDE7D9;
+    --ink-dim: #9C97A8;
+    --gold: #C9A54A;
+    --violet: #6B4E9E;
+    --line: rgba(237,231,217,0.12);
+    --step1: #8A2C2C;
+    --step2: #A5432E;
+    --step3: #BE6A2E;
+    --step4: #C9A54A;
+    --shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  [data-theme="light"] {
+    --bg: #F2EDE3;
+    --bg-elevated: #FFFFFF;
+    --ink: #241F2B;
+    --ink-dim: #6B6478;
+    --gold: #9C7A2E;
+    --violet: #5A3E8C;
+    --line: rgba(36,31,43,0.12);
+    --shadow: 0 20px 50px rgba(36,31,43,0.12);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    transition: background 0.4s ease, color 0.4s ease;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, .display {
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  code, .mono, .chord {
+    font-family: "SF Mono", "Courier New", Courier, monospace;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px;
+    max-width: 860px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    backdrop-filter: blur(8px);
+    z-index: 10;
+  }
+
+  .header-shell {
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 10;
+  }
+  .header-shell header { border-bottom: none; }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .brand-name {
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+
+  .brand-name strong {
+    color: var(--gold);
+    display: block;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+  }
+
+  #pentad-logo {
+    width: 42px;
+    height: 42px;
+    animation: spin 22s linear infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .toggle {
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    border-radius: 999px;
+    padding: 8px 18px;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  .toggle:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ---------- Layout container ---------- */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 10vh 32px 6vh;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.75rem;
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 4.6vw, 3.4rem);
+    margin: 0 0 16px;
+    line-height: 1.15;
+  }
+
+  .hero .luganda {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .hero p {
+    color: var(--ink-dim);
+    font-size: 1.05rem;
+    max-width: 640px;
+  }
+
+  .meta-row {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+
+  .meta-item .label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-dim);
+    margin-bottom: 4px;
+  }
+  .meta-item .value {
+    font-family: Georgia, serif;
+    font-size: 1.1rem;
+    color: var(--ink);
+  }
+
+  /* ---------- Video ---------- */
+  .video-section {
+    padding: 0 32px 8vh;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .video-frame {
+    position: relative;
+    padding-top: 56.25%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--line);
+  }
+
+  .video-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .video-caption {
+    margin-top: 14px;
+    font-size: 0.85rem;
+    color: var(--ink-dim);
+  }
+
+  /* ---------- Staircase (signature element) ---------- */
+  .staircase-section {
+    padding: 4vh 32px 10vh;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .staircase-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+  }
+  .staircase-section .sub {
+    color: var(--ink-dim);
+    margin-bottom: 6vh;
+    max-width: 640px;
+  }
+
+  .staircase {
+    max-width: 100%;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    align-items: center;
+    gap: 24px;
+    padding: 22px 26px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--step-color);
+    border-radius: 6px;
+    margin-bottom: -1px;
+    position: relative;
+  }
+
+  .step:nth-child(1) { --step-color: var(--step1); margin-left: 0%; }
+  .step:nth-child(2) { --step-color: var(--step2); margin-left: 6%; margin-top: 10px; }
+  .step:nth-child(3) { --step-color: var(--step3); margin-left: 12%; margin-top: 10px; }
+  .step:nth-child(4) { --step-color: var(--step4); margin-left: 18%; margin-top: 10px; }
+
+  .step .note {
+    font-family: Georgia, serif;
+    font-size: 2.1rem;
+    color: var(--step-color);
+    text-align: center;
+  }
+
+  .step .info .chord-label {
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+  }
+  .step .info .roman {
+    color: var(--ink-dim);
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+  }
+
+  .cadence-block {
+    margin-top: 40px;
+    margin-left: 24%;
+    padding: 24px 26px;
+    background: linear-gradient(135deg, var(--violet), var(--gold));
+    border-radius: 6px;
+    color: #fff;
+    box-shadow: var(--shadow);
+  }
+  [data-theme="light"] .cadence-block { color: #fff; }
+
+  .cadence-block .tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    opacity: 0.85;
+    margin-bottom: 8px;
+  }
+  .cadence-block .chords {
+    font-family: "SF Mono", Courier, monospace;
+    font-size: 1.15rem;
+  }
+
+  /* ---------- Loop / lead sheet ---------- */
+  .loop-section {
+    padding: 6vh 32px;
+    background: var(--bg-elevated);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .loop-inner { max-width: 860px; margin: 0 auto; }
+
+  .loop-inner h2 { font-size: 1.6rem; margin-bottom: 24px; }
+
+  .loop-box {
+    font-family: "SF Mono", Courier, monospace;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 28px;
+    font-size: 1rem;
+    line-height: 2;
+    overflow-x: auto;
+    white-space: pre;
+    color: var(--ink);
+  }
+  .loop-box .repeat { color: var(--gold); }
+  .loop-box .phrygian { color: var(--violet); font-weight: bold; }
+
+  .melody-note {
+    margin-top: 28px;
+    padding: 20px 24px;
+    border-left: 3px solid var(--gold);
+    color: var(--ink-dim);
+    font-size: 0.95rem;
+  }
+  .melody-note strong { color: var(--ink); }
+
+  /* ---------- Roundtable transcript ---------- */
+  .roundtable-section {
+    padding: 8vh 32px 4vh;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .roundtable-section > h2 { font-size: 1.6rem; margin-bottom: 8px; }
+  .roundtable-section > .sub { color: var(--ink-dim); margin-bottom: 5vh; }
+
+  details.entry {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    margin-bottom: 14px;
+    background: var(--bg-elevated);
+    overflow: hidden;
+  }
+
+  details.entry summary {
+    cursor: pointer;
+    padding: 18px 22px;
+    font-family: Georgia, serif;
+    font-size: 1.05rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  details.entry summary::-webkit-details-marker { display: none; }
+  details.entry summary .plus {
+    color: var(--gold);
+    font-family: monospace;
+    font-size: 1.2rem;
+  }
+  details.entry[open] summary .plus { transform: rotate(45deg); }
+  details.entry summary .plus { transition: transform 0.2s ease; display: inline-block; }
+
+  details.entry .body {
+    padding: 0 22px 22px;
+    color: var(--ink-dim);
+    font-size: 0.95rem;
+  }
+  details.entry .body strong { color: var(--ink); }
+
+  /* ---------- Ledger footer ---------- */
+  .ledger {
+    padding: 6vh 32px 10vh;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .ledger h2 { font-size: 1.2rem; margin-bottom: 16px; color: var(--gold); }
+  .ledger pre {
+    font-family: "SF Mono", Courier, monospace;
+    font-size: 0.82rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 24px;
+    color: var(--ink-dim);
+    overflow-x: auto;
+    line-height: 1.7;
+  }
+  .ledger pre .k { color: var(--gold); }
+  .ledger .status {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--violet);
+    border: 1px solid var(--violet);
+    border-radius: 999px;
+    padding: 5px 14px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 5vh 5vw;
+    color: var(--ink-dim);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--line);
+  }
+  footer .luganda { color: var(--gold); font-style: italic; }
+
+  @media (max-width: 640px) {
+    .step { grid-template-columns: 60px 1fr; padding: 16px; }
+    .step:nth-child(n) { margin-left: 0 !important; }
+    .cadence-block { margin-left: 0; }
+    .meta-row { gap: 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #pentad-logo { animation: none; }
+  }
+</style>
+</head>
+<body data-theme="dark">
+
+<div class="header-shell">
+<header>
+  <div class="brand">
+    <svg id="pentad-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="50,5 90,35 75,90 25,90 10,35" fill="none" stroke="#C9A54A" stroke-width="4"/>
+      <circle cx="50" cy="5" r="4" fill="#C9A54A"/>
+      <circle cx="90" cy="35" r="4" fill="#C9A54A"/>
+      <circle cx="75" cy="90" r="4" fill="#C9A54A"/>
+      <circle cx="25" cy="90" r="4" fill="#C9A54A"/>
+      <circle cx="10" cy="35" r="4" fill="#C9A54A"/>
+      <circle cx="50" cy="50" r="5" fill="#6B4E9E"/>
+    </svg>
+    <div class="brand-name">
+      <strong>Ukubona LLC</strong>
+      Roundtable Archive
+    </div>
+  </div>
+  <button class="toggle" onclick="toggleTheme()" id="theme-toggle">Light mode</button>
+</header>
+</div>
+
+<section class="hero">
+  <div class="eyebrow">Harmonic Analysis — Roundtable Session</div>
+  <h1>Okubala si Kulaba<br><span class="luganda">— counting the descent is not hearing the fall</span></h1>
+  <p>A multi-model roundtable session tracing the chromatic bass architecture of "We Got Hood Love" (Mary J. Blige ft. Trey Songz): gravity, voice-leading, and the ii7♭5–V7(Phrygian)–i cadence as release.</p>
+
+  <div class="meta-row">
+    <div class="meta-item"><div class="label">Key</div><div class="value">B minor</div></div>
+    <div class="meta-item"><div class="label">Tempo</div><div class="value">Adagio, ♩ ≈ 63 BPM</div></div>
+    <div class="meta-item"><div class="label">Meter</div><div class="value">Common time</div></div>
+    <div class="meta-item"><div class="label">Mode</div><div class="value">Aeolian → Phrygian dominant</div></div>
+    <div class="meta-item"><div class="label">Melodic anchor</div><div class="value">F♯ (5th of tonic)</div></div>
+  </div>
+</section>
+
+<section class="video-section">
+  <div class="video-frame">
+    <iframe
+      src="https://www.youtube.com/embed/f95yosNEIoc"
+      title="We Got Hood Love — Mary J. Blige ft. Trey Songz"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+  <div class="video-caption">Source recording referenced throughout this session. If the embed doesn't load (some uploaders disable embedding), <a href="https://m.youtube.com/watch?v=f95yosNEIoc" target="_blank" style="color:var(--gold)">watch directly on YouTube</a>.</div>
+</section>
+
+<section class="staircase-section">
+  <h2>The chromatic descent</h2>
+  <p class="sub">The engine of the progression isn't the Roman numerals — it's the bass line falling one semitone at a time. Every chord exists to legitimize the next step down.</p>
+
+  <div class="staircase">
+    <div class="step">
+      <div class="note">B</div>
+      <div class="info">
+        <div class="chord-label">Bm</div>
+        <div class="roman">i — tonic, root position</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="note">A♯</div>
+      <div class="info">
+        <div class="chord-label">F♯7 / A♯</div>
+        <div class="roman">V7, 1st inversion</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="note">A</div>
+      <div class="info">
+        <div class="chord-label">D / F♯</div>
+        <div class="roman">III, 2nd inversion</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="note">G♯</div>
+      <div class="info">
+        <div class="chord-label">E7 / G♯</div>
+        <div class="roman">IV7, 2nd inversion</div>
+      </div>
+    </div>
+
+    <div class="cadence-block">
+      <div class="tag">Setup → Release</div>
+      <div class="chords">C♯m7♭5 (ii7♭5) → F♯7 (V7 Phrygian) → Bm (i)</div>
+    </div>
+  </div>
+</section>
+
+<section class="loop-section">
+  <div class="loop-inner">
+    <h2>The full loop</h2>
+    <div class="loop-box"><span class="repeat">||:</span> i – V7(1st inv) – III(2nd inv) – IV7(2nd inv)  |
+   iv – v – iv – III  |
+   ii7♭5 – <span class="phrygian">V7 (Phrygian)</span>  <span class="repeat">:||</span></div>
+
+    <div class="melody-note">
+      <strong>Melody:</strong> held largely on F♯ — the 5th of Bm, the root of F♯7, the 9th over Em, the 11th over C♯m7♭5. Drawn from the B minor pentatonic set (B–D–E–F♯–A); color tones from the Phrygian dominant cadence are touched only in passing, not sustained. Gospel-tradition technique: hold the melody note, let the harmony underneath do the moving.
+    </div>
+  </div>
+</section>
+
+<section class="roundtable-section">
+  <h2>Roundtable transcript</h2>
+  <p class="sub">Condensed exchange — click to expand each contribution.</p>
+
+  <details class="entry" open>
+    <summary>Opening structural breakdown <span class="plus">+</span></summary>
+    <div class="body">
+      Identified the chromatic bass descent (B → A♯ → A → G♯) as the primary engine, with chords selected to legitimize each bass note rather than the reverse. The Aeolian passing chords in bar two strip away chromatic tension to set up the true turnaround: the Phrygian dominant flavor belongs specifically to the cadential V7, not as a permanent modal state.
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>Refinement — bass as primary organizing principle <span class="plus">+</span></summary>
+    <div class="body">
+      Two phenomena run simultaneously: functional harmony (Roman numerals) and linear voice-leading (the chromatic bass). The second is the stronger organizing principle — a technique lineage running from Renaissance lament basses through Bach, gospel, soul, flamenco, and modern R&B. <strong>Bass:</strong> B ↓ A♯ ↓ A ↓ G♯, with chords chosen to legitimize each step.
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>On inevitability <span class="plus">+</span></summary>
+    <div class="body">
+      Most pop loops repeat roots; this one repeats gravity. Each bass note sits only a semitone from the next, so the ear never experiences a jump — only continuous falling. Psychologically distinct from harmonic loops built on leaps.
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>Modal geography — local vs. global color <span class="plus">+</span></summary>
+    <div class="body">
+      The song is not "in Phrygian dominant" — it is fundamentally B Aeolian. Only the dominant acquires Phrygian-dominant coloration, borrowed for one purpose: maximize dominant tension, then dissolve. <strong>Later refinement:</strong> a trace of that color bleeds into the tonic itself — the shared pivot tone (G) reads as ♭9 over F♯7(Phrygian), ♭5 over C♯m7♭5(locrian), and ♭6/♭13 over Bm at rest. The color is mostly local to the cadence, but not fully quarantined.
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>The F♯ axis <span class="plus">+</span></summary>
+    <div class="body">
+      F♯ behaves as a near-fixed pivot while the harmony moves underneath: 5th over Bm, root over F♯7, 3rd over D, 9th over E7 and Em, 11th over C♯m7♭5. Harmony moves, bass moves, melody stays still — an oblique texture that feels emotionally stable while harmonically restless. Confirmed as pentatonic-framed (B minor pentatonic), with color tones from the cadence entering only in passing — a gospel-tradition device: hold the note, vary the harmony underneath it.
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>Why it reads as R&B <span class="plus">+</span></summary>
+    <div class="body">
+      Gospel contributes the ii7♭5–V7–i cadence. Soul contributes the chromatic bass motion. Flamenco contributes the altered dominant. Jazz contributes functional reinterpretation through inversions. R&B strips away excess melodic movement and lets groove carry the emotion — sophisticated without announcing itself as sophisticated.
+    </div>
+  </details>
+
+  <details class="entry">
+    <summary>Geodesic, not circle-of-fifths <span class="plus">+</span></summary>
+    <div class="body">
+      A true circle-of-fifths cadence moves by descending fifths as its primary motion. Here the primary motion is chromatic/stepwise in the bass; the ii7♭5–V7–i is a local cadential gesture grafted onto that stepwise skeleton, not the whole progression being fifths-driven. Better described as a geodesic constrained by voice-leading: each chord minimizes local movement while maximizing tension held in reserve for the cadence — gradient descent with a low learning rate, small legitimate steps rather than jumps, recursive rather than merely repeating, since each resolution seeds the next descent instead of landing on a stable plateau.
+    </div>
+  </details>
+</section>
+
+<section class="ledger">
+  <h2>Append-only ledger</h2>
+  <pre><span class="k">[SESSION]</span> Harmonic Analysis — "We Got Hood Love" (MJB ft. Trey Songz)
+<span class="k">Key:</span> B minor
+<span class="k">Tempo:</span> Adagio (~63 BPM)
+<span class="k">Meter:</span> Common time
+<span class="k">Loop:</span> i – V7(1st inv) – III(2nd inv) – IV7(2nd inv) | iv – v – iv – III | ii7♭5 – V7(Phrygian) :||
+<span class="k">Engine:</span> chromatic bass descent (B–A♯–A–G♯), voice-leading as primary organizing principle
+<span class="k">Melody:</span> anchored on F♯ (5th of tonic), B minor pentatonic frame, color tones passing only
+<span class="k">Modal color:</span> Aeolian on descent; Phrygian dominant confined to cadential V7, ♭6/♭13 trace bleeds into tonic
+<span class="k">Tradition:</span> gospel ii–V–i + soul chromatic bass + flamenco altered dominant + jazz reharmonization
+<span class="k">Framing:</span> geodesic constrained by voice-leading — gradient descent, low learning rate, recursive not repeating</pre>
+  <div class="status">Status: Locked</div>
+</section>
+
+<footer>
+  Ukubona LLC — Sovereign Learning &amp; Digital Twin Infrastructure<br>
+  <span class="luganda">Okubala si Kulaba</span> — counting is not seeing
+</footer>
+
+<script>
+  function toggleTheme() {
+    const body = document.body;
+    const btn = document.getElementById('theme-toggle');
+    if (body.getAttribute('data-theme') === 'dark') {
+      body.setAttribute('data-theme', 'light');
+      btn.textContent = 'Dark mode';
+    } else {
+      body.setAttribute('data-theme', 'dark');
+      btn.textContent = 'Light mode';
+    }
+  }
+</script>
+
+</body>
+</html>
