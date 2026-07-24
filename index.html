@@ -640,6 +640,58 @@
     .triad-strip, .convergence-pair { grid-template-columns: 1fr; }
   }
 
+  /* ---------- Dream sequence / resonanceMax section ---------- */
+  .dream-section {
+    padding: 8vh 32px 2vh;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .dream-section h2 { font-size: 1.6rem; margin-bottom: 8px; }
+  .dream-section .sub { color: var(--ink-dim); margin-bottom: 4vh; max-width: 680px; }
+
+  .resonance-explainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 5vh;
+  }
+  .resonance-explainer .panel {
+    border: 1px solid var(--line);
+    background: var(--bg-elevated);
+    border-radius: 8px;
+    padding: 20px 20px 18px;
+    border-top: 3px solid var(--r-color, var(--gold));
+  }
+  .resonance-explainer .panel:nth-child(1) { --r-color: var(--gold); }
+  .resonance-explainer .panel:nth-child(2) { --r-color: var(--violet); }
+  .resonance-explainer .panel:nth-child(3) { --r-color: var(--step1); }
+  .resonance-explainer .panel .tag {
+    font-family: "SF Mono", Courier, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--r-color, var(--gold));
+    margin-bottom: 8px;
+  }
+  .resonance-explainer .panel p {
+    color: var(--ink-dim);
+    font-size: 0.88rem;
+    margin: 0;
+  }
+
+  .interrupt-note {
+    padding: 20px 24px;
+    border-left: 3px solid var(--step1);
+    color: var(--ink-dim);
+    font-size: 0.95rem;
+    margin: 3vh 0;
+  }
+  .interrupt-note strong { color: var(--ink); }
+
+  @media (max-width: 640px) {
+    .resonance-explainer { grid-template-columns: 1fr; }
+  }
+
   /* ---------- Ledger footer ---------- */
   .ledger {
     padding: 6vh 32px 10vh;
@@ -1050,6 +1102,52 @@
   </div>
 </section>
 
+<section class="dream-section">
+  <h2>resonanceMax → softMax → argMax: a 5am dream, logged as data</h2>
+  <p class="sub">Roughly forty minutes after this archive reached "Status: Locked" for the first time, the same architecture showed up uninvited in a dream, and was still legible on waking. Logged here in the same append-only spirit as everything else — the dream isn't the subject, the constraint structure underneath it is.</p>
+
+  <div class="resonance-explainer">
+    <div class="panel">
+      <div class="tag">resonanceMax — the fetch</div>
+      <p>Before any distribution exists to normalize, something has to retrieve which memories are even in play. A day spent inside chromatic tension and delayed resolution queries the memory bank for a matching structure — high-stakes, hierarchical, ambiguous. The dream doesn't invent its cast; it retrieves whatever in memory resonates with the day's held tension.</p>
+    </div>
+    <div class="panel">
+      <div class="tag">softMax — the hold</div>
+      <p>Two competing frames stay active at once, institutional (forms, instruction, a room to find) and interpersonal (proximity, eye contact) without collapsing into either. This is a high-temperature state: entropy stays high because neither cached script — one trained by two decades of an institution, one trained by a specific cultural dating pattern — fully fits the figure in front of it.</p>
+    </div>
+    <div class="panel">
+      <div class="tag">argMax — the commit</div>
+      <p>Waking physiology doesn't recompute the softmax. It overrides it — closer to a hardware interrupt than a lower temperature. The ambiguous state gets forcibly resolved from outside the inference loop that was holding it, which is a different mechanism than the distribution simply sharpening on its own.</p>
+    </div>
+  </div>
+
+  <div class="softmax-grid">
+    <div class="softmax-stage">
+      <div class="stage-label">Dream state<br>high temperature, both frames active</div>
+      <div class="bars">
+        <div class="bar-col"><div class="bar-pct">52%</div><div class="bar" style="--h:66%"></div><div class="bar-name">Institutional</div></div>
+        <div class="bar-col"><div class="bar-pct">48%</div><div class="bar" style="--h:60%"></div><div class="bar-name">Interpersonal</div></div>
+      </div>
+    </div>
+    <div class="softmax-stage argmax">
+      <div class="stage-label">Waking moment<br>hardware interrupt, forced resolution</div>
+      <div class="bars">
+        <div class="bar-col peak-col"><div class="bar-pct">94%</div><div class="bar peak" style="--h:100%"></div><div class="bar-name">Interpersonal</div></div>
+        <div class="bar-col"><div class="bar-pct">6%</div><div class="bar" style="--h:8%"></div><div class="bar-name">Institutional</div></div>
+      </div>
+    </div>
+  </div>
+  <p class="video-caption" style="text-align:center;margin-top:-1vh;margin-bottom:3vh;">Illustrative, not measured — the shape of the claim, same caveat as the genre distribution above.</p>
+
+  <div class="interrupt-note">
+    <strong>Why "hardware interrupt" and not just "lower temperature":</strong> a temperature drop is still the same process, just sharper — the softmax recomputes on its own terms and one option wins by a wider margin. What happened here is a different kind of event: a signal from outside the inference loop (physiology) forcibly terminates the ambiguity the loop was still sitting in. The dream's own softmax never actually resolved the two frames on its terms. Something external to the computation reached in and picked a winner. That's a meaningfully different mechanism from convergence, and worth keeping distinct rather than folding both into "argMax" as if they were the same event wearing different clothes.
+  </div>
+
+  <div class="genre-note">
+    <strong>Where this closes the loop with the section above:</strong> the Hassabis section drew a line between a triad built to conquer a space (path as implementation detail, discarded once the objective is reached) and a pentad built to experience one (path as the event itself). This dream sequence is the same distinction running on biological hardware instead of harmonic material. The dream — like stage III's chromatic descent — was content to sit inside the unresolved state; sitting in the ambiguity was the actual activity, not a delay before some answer. The waking interrupt was the triad's move: stop experiencing the ambiguity, collapse it, commit, move on. Neither the dream's patience nor the body's interrupt is the "correct" operation. They're two different architectures meeting inside a single nervous system, on the same morning this artifact went from draft to ledger.
+  </div>
+</section>
+
 <section class="ledger">
   <h2>Append-only ledger</h2>
   <pre><span class="k">[SESSION]</span> Harmonic Analysis — "We Got Hood Love" (MJB ft. Trey Songz)
@@ -1065,6 +1163,7 @@
 <span class="k">Pentad re-run:</span> I Hz/point → II 12TET/combinatorial explosion (reflex,heuristics,cache,rules,index) → III voice-leading/gradient descent, low LR → IV tradition/training data → V genre objective = next-token prediction under tolerable surprise
 <span class="k">Hassabis (Nobel Lecture, 8 Dec 2024):</span> triad = {search space, objective function, data/simulator} maps onto pentad {II, V, IV}; III (path) and I (reference point) are the two stages a checklist doesn't need but a lived tradition does
 <span class="k">Convergence:</span> Move 37 = tolerable surprise (stage V); Levinthal's Paradox / energy-landscape topology = voice-leading gradient descent (stage III)
+<span class="k">Dream sequence (5:49am EAT, ~40min post-lock):</span> resonanceMax (memory fetch, keyed to day's held tension) → softMax (dream state, high T, two frames coexist) → argMax (waking, hardware interrupt not temperature decay — physiology overrides the loop rather than the loop converging on its own)
 <span class="k">Framing:</span> geodesic constrained by voice-leading — gradient descent, low learning rate, recursive not repeating</pre>
   <div class="status">Status: Locked</div>
 </section>
