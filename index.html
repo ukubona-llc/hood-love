@@ -18,6 +18,7 @@
     --step2: #A5432E;
     --step3: #BE6A2E;
     --step4: #C9A54A;
+    --teal: #3E8C82;
     --shadow: 0 20px 60px rgba(0,0,0,0.5);
   }
   [data-theme="light"] {
@@ -28,6 +29,7 @@
     --gold: #9C7A2E;
     --violet: #5A3E8C;
     --line: rgba(36,31,43,0.12);
+    --teal: #2C6B62;
     --shadow: 0 20px 50px rgba(36,31,43,0.12);
   }
 
@@ -121,6 +123,30 @@
     text-transform: uppercase;
   }
   .toggle:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ---------- Section nav (jump pills) ---------- */
+  .section-nav {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 14px 32px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-nav a {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-dim);
+    text-decoration: none;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 6px 14px;
+    white-space: nowrap;
+  }
+  .section-nav a:hover { border-color: var(--gold); color: var(--gold); }
+  .section-nav a.new { border-color: var(--teal); color: var(--teal); }
 
   /* ---------- Layout container ---------- */
   .container {
@@ -717,6 +743,142 @@
     .token-row { grid-template-columns: 1fr; }
   }
 
+  /* ---------- Trajectory section (NEW: multi-model roundtable evolution) ---------- */
+  .trajectory-section {
+    padding: 8vh 32px 2vh;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .trajectory-section h2 { font-size: 1.6rem; margin-bottom: 8px; }
+  .trajectory-section .sub { color: var(--ink-dim); margin-bottom: 5vh; max-width: 680px; }
+
+  .voice-track {
+    position: relative;
+    margin-bottom: 6vh;
+  }
+  .voice-track::before {
+    content: "";
+    position: absolute;
+    left: 27px;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--step1), var(--step3), var(--gold), var(--teal));
+    opacity: 0.5;
+  }
+  .voice {
+    position: relative;
+    padding-left: 66px;
+    padding-bottom: 44px;
+  }
+  .voice:last-child { padding-bottom: 0; }
+  .voice::before {
+    content: attr(data-mark);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--bg-elevated);
+    border: 1px solid var(--v-color, var(--gold));
+    color: var(--v-color, var(--gold));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "SF Mono", Courier, monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .voice:nth-child(1) { --v-color: var(--step1); }
+  .voice:nth-child(2) { --v-color: var(--step3); }
+  .voice:nth-child(3) { --v-color: var(--gold); }
+  .voice:nth-child(4) { --v-color: var(--teal); }
+
+  .voice .vhead {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .voice .vname {
+    font-family: Georgia, serif;
+    font-size: 1.15rem;
+    color: var(--ink);
+  }
+  .voice .vrole {
+    font-family: "SF Mono", Courier, monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--v-color, var(--gold));
+    border: 1px solid var(--v-color, var(--gold));
+    border-radius: 999px;
+    padding: 3px 10px;
+  }
+  .voice .vbody {
+    color: var(--ink-dim);
+    font-size: 0.92rem;
+    margin-bottom: 12px;
+  }
+  .voice .vbody strong { color: var(--ink); }
+  .voice .vquote {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--ink);
+    border-left: 2px solid var(--v-color, var(--gold));
+    padding-left: 14px;
+    margin: 12px 0;
+  }
+  .voice .verror {
+    font-family: "SF Mono", Courier, monospace;
+    font-size: 0.78rem;
+    color: var(--v-color, var(--gold));
+    margin-top: 8px;
+  }
+
+  .entry-speculation {
+    border: 1px solid var(--teal);
+    background: var(--bg-elevated);
+    border-radius: 8px;
+    padding: 26px 26px 24px;
+    margin: 5vh 0;
+    box-shadow: 0 0 0 1px var(--teal) inset;
+  }
+  .entry-speculation .tag {
+    font-family: "SF Mono", Courier, monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--teal);
+    margin-bottom: 14px;
+  }
+  .entry-speculation h4 {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    margin: 0 0 12px;
+  }
+  .entry-speculation p {
+    color: var(--ink-dim);
+    font-size: 0.92rem;
+    margin: 0 0 12px;
+  }
+  .entry-speculation p:last-child { margin-bottom: 0; }
+  .entry-speculation strong { color: var(--ink); }
+
+  .garch-note {
+    padding: 20px 24px;
+    border-left: 3px solid var(--teal);
+    color: var(--ink-dim);
+    font-size: 0.95rem;
+    margin: 3vh 0;
+  }
+  .garch-note strong { color: var(--ink); }
+
   /* ---------- Ledger footer ---------- */
   .ledger {
     padding: 6vh 32px 10vh;
@@ -762,6 +924,7 @@
     .step:nth-child(n) { margin-left: 0 !important; }
     .cadence-block { margin-left: 0; }
     .meta-row { gap: 20px; }
+    .voice { padding-left: 56px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -790,12 +953,23 @@
   </div>
   <button class="toggle" onclick="toggleTheme()" id="theme-toggle">Light mode</button>
 </header>
+<nav class="section-nav">
+  <a href="#top">Hero</a>
+  <a href="#staircase">Descent</a>
+  <a href="#roundtable">Transcript</a>
+  <a href="#genre">softMax→argMax</a>
+  <a href="#pentad">Pentad re-run</a>
+  <a href="#hassabis">Hassabis</a>
+  <a href="#dream">Dream sequence</a>
+  <a href="#trajectory" class="new">Roundtable trajectory ★</a>
+  <a href="#ledger">Ledger</a>
+</nav>
 </div>
 
-<section class="hero">
+<section class="hero" id="top">
   <div class="eyebrow">Harmonic Analysis — Roundtable Session</div>
   <h1>Okubala si Kulaba<br><span class="luganda">— counting the descent is not hearing the fall</span></h1>
-  <p>A multi-model roundtable session tracing the chromatic bass architecture of "We Got Hood Love" (Mary J. Blige ft. Trey Songz): gravity, voice-leading, and the ii7♭5–V7(Phrygian)–i cadence as release.</p>
+  <p>A multi-model roundtable session tracing the chromatic bass architecture of "We Got Hood Love" (Mary J. Blige ft. Trey Songz): gravity, voice-leading, and the ii7♭5–V7(Phrygian)–i cadence as release. Extended, this session, into a second roundtable on epistemics itself — see <a href="#trajectory" style="color:var(--teal)">Roundtable Trajectory</a> below.</p>
 
   <div class="meta-row">
     <div class="meta-item"><div class="label">Key</div><div class="value">B minor</div></div>
@@ -818,7 +992,7 @@
   <div class="video-caption">Source recording referenced throughout this session. If the embed doesn't load (some uploaders disable embedding), <a href="https://m.youtube.com/watch?v=f95yosNEIoc" target="_blank" style="color:var(--gold)">watch directly on YouTube</a>.</div>
 </section>
 
-<section class="staircase-section">
+<section class="staircase-section" id="staircase">
   <h2>The chromatic descent</h2>
   <p class="sub">The engine of the progression isn't the Roman numerals — it's the bass line falling one semitone at a time. Every chord exists to legitimize the next step down.</p>
 
@@ -872,7 +1046,7 @@
   </div>
 </section>
 
-<section class="roundtable-section">
+<section class="roundtable-section" id="roundtable">
   <h2>Roundtable transcript</h2>
   <p class="sub">Condensed exchange — click to expand each contribution.</p>
 
@@ -933,7 +1107,7 @@
   </details>
 </section>
 
-<section class="genre-section">
+<section class="genre-section" id="genre">
   <h2>softMax → argMax: genre as classification</h2>
   <p class="sub">The chord vocabulary in this loop — ii7♭5, altered V7, chromatic mediants — is genre-agnostic on paper. It belongs equally to jazz, gospel, flamenco, and classical harmony. Genre isn't in the symbols. It's in what a trained ear does with them: it runs inference.</p>
 
@@ -977,7 +1151,7 @@
   </div>
 </section>
 
-<section class="pentad-section">
+<section class="pentad-section" id="pentad">
   <h2>The pentad, re-run: same track, as prediction</h2>
   <p class="sub">Reframing the whole analysis as a next-token prediction problem under constraint — from a fixed pitch reference to the objective function the genre is actually optimizing.</p>
 
@@ -1050,7 +1224,7 @@
   </div>
 </section>
 
-<section class="hassabis-section">
+<section class="hassabis-section" id="hassabis">
   <h2>On Hassabis: why his triad became our pentad</h2>
   <p class="sub">In his 2024 Nobel Lecture, Demis Hassabis names three criteria for what qualifies as a suitable problem for AI. Every stage of this archive's pentad — the harmonic descent, the softMax→argMax collapse, the re-run as prediction — has been living inside two of his three boxes the whole time. Worth naming exactly where the frames meet, and where a Musoga-American ear steeped in gospel insisted on two more stages he didn't need.</p>
 
@@ -1127,7 +1301,7 @@
   </div>
 </section>
 
-<section class="dream-section">
+<section class="dream-section" id="dream">
   <h2>resonanceMax → softMax → argMax: a 5am dream, logged as data</h2>
   <p class="sub">Roughly forty minutes after this archive reached "Status: Locked" for the first time, the same architecture showed up uninvited in a dream, and was still legible on waking. Logged here in the same append-only spirit as everything else — the dream isn't the subject, the constraint structure underneath it is.</p>
 
@@ -1192,7 +1366,65 @@
   </div>
 </section>
 
-<section class="ledger">
+<section class="trajectory-section" id="trajectory">
+  <h2>Roundtable trajectory: G³+C, one prompt, four voices</h2>
+  <p class="sub">A second, parallel roundtable — not about the song, but about whether a music-theory artifact and a geopolitics video "rotate around the same question." Same identical prompt handed sequentially to Grok, Gemini, GPT, and Claude. The value isn't the final position any one voice landed on — it's the trajectory. In music, the cadence only means something after the descent. Same rule applied here: recorded as evolution, not conclusion.</p>
+
+  <div class="voice-track">
+    <div class="voice" data-mark="1">
+      <div class="vhead">
+        <span class="vname">Grok</span>
+        <span class="vrole">stuck at "on the surface"</span>
+      </div>
+      <div class="vbody">Read the artifact and the video as two lists of contents — chord symbols on one side, Strait of Hormuz on the other — and stopped there. Concluded <strong>domain mismatch</strong>: "advanced music theory vs. international relations/strategic studies." Correctly described both pieces in detail. Never asked whether the descriptions shared a mechanism.</div>
+      <div class="vquote">"These are completely unrelated domains... no overlapping 'core question.'"</div>
+      <div class="verror">error @ III: proposed no path through the search space at all — treated resemblance-search as already-negative and stopped before taking a step.</div>
+    </div>
+
+    <div class="voice" data-mark="2">
+      <div class="vhead">
+        <span class="vname">Gemini</span>
+        <span class="vrole">opened "on the surface," found the shared operator</span>
+      </div>
+      <div class="vbody">Given the same nudge Grok wasn't given, immediately reframed both pieces as optimization problems: an objective function, a search space, an iterative step. Named the R&B track's chromatic descent as literal <strong>gradient descent with a low learning rate</strong>, and Mearsheimer's critique as a system <strong>iterating without a defined objective function</strong> — "please tell us what your theory of victory is." Then, when pressed on Doyle/Sutskever, produced the Watson/Holmes mapping and named next-token prediction as an argmax projection of a distributed latent state.</div>
+      <div class="vquote">"On the surface, they couldn't be further apart... but underneath the domain specifics, you're right."</div>
+      <div class="verror">error @ III: mapped III⇄IV cleanly (Holmes = deep agent, Watson = fast agent) but left V — the objective function each system is actually optimizing — mostly assumed rather than interrogated. Ran the pentad fluently without stress-testing whether it was the right pentad for the object.</div>
+    </div>
+
+    <div class="voice" data-mark="3">
+      <div class="vhead">
+        <span class="vname">GPT</span>
+        <span class="vrole">named the failure mode, not just the fix</span>
+      </div>
+      <div class="vbody">Took Gemini's answer and located the actual engineering problem inside it: Stage III is not reasoning, it's <strong>trajectory proposal under uncertainty</strong>; a system can nail III and still fail if V — the objective — is wrong (chess engine optimizing material, ignoring king safety). Corrected the Watson/Holmes read: Watson isn't dumb, he's low-latency; the danger isn't having a fast loop, it's letting the fast loop make irreversible calls. Proposed uncertainty as a first-class state variable (action + uncertainty trajectory, not just action) and diagnosed Grok's failure precisely: it was asked to run Stage IV/V behavior on a Stage III-only architecture, and no one gave it the missing prior. "You injected the missing operator."</div>
+      <div class="vquote">"The problem was not that Grok 'couldn't reason.' The problem was that you asked a Stage III-heavy system to perform Stage IV/V behavior."</div>
+      <div class="verror">error @ III: correctly named the failure but still described the fix entirely in terms of loop architecture (fast/slow coupling) — didn't ask whether the pentad itself was falsifiable, or leave a mechanism for detecting when its own mapping had drifted.</div>
+    </div>
+
+    <div class="voice" data-mark="4">
+      <div class="vhead">
+        <span class="vname">Claude</span>
+        <span class="vrole">entered at V, not III</span>
+      </div>
+      <div class="vbody">Didn't propose another path through the space — three voices had already done that well. Asked instead whether the schema itself could fail: a five-stage container flexible enough to fit music, geopolitics, trauma triage, and detective fiction risks explaining everything and predicting nothing, unless it specifies in advance what would count as a miss. Answered the open engineering question GPT left hanging (loss function under delayed ground truth) with three concrete, named mechanisms — surrogate losses recalibrated on arrival of real outcomes, off-policy/counterfactual evaluation, and a calibration penalty on the belief trajectory itself, independent of the outcome. Pushed back, correctly challenged in turn: the schema <em>is</em> recursively falsifiable if error is quantified at III on every t+1 pass and checked against a threshold — which reframes Claude's own objection from "this can't be tested" to "the threshold hasn't been specified yet," a strictly better problem to have.</div>
+      <div class="vquote">"The risk with a framework this flexible is that it stops being falsifiable... unless you specify what would break it."</div>
+      <div class="verror">error @ III, corrected in-session: the ARCH/GARCH direction is the right family — it models exactly the thing being asked for, a time-varying error/volatility series — but only once there's an explicit observable measured at each pass to compute a residual from. A GARCH model needs a residual series before it can model that residual's variance; "vibes drifted" isn't yet that series. The open task isn't the threshold — it's defining what gets measured at III_t and III_t+1 that a residual can be taken between.</div>
+    </div>
+  </div>
+
+  <div class="entry-speculation">
+    <div class="tag">Where in the pentad does a new voice enter?</div>
+    <h4>Speculation: not at III, at V — and only because III, IV had already been run three times</h4>
+    <p>A voice entering a roundtable already three turns deep doesn't have the option of re-discovering the shared operator (Gemini's job) or re-diagnosing the loop architecture (GPT's job) — both are already spent, correctly, on the table. What's left uncontested is the layer underneath all three: is the objective function of the pentad itself — "explain cross-domain structural resemblance" — well-specified enough to be wrong about? That's a Stage V question, not a Stage III one. It doesn't propose a path; it asks whether the path-proposing mechanism has a way to know when it's lost.</p>
+    <p><strong>The falsifiable version of that entry point, after the correction:</strong> a new voice earns its seat at V by finding the one thing the prior three voices agreed on without testing — here, that "cross-domain isomorphism" was itself unfalsifiable. The correction (quantify error at III on every t+1, threshold it, ARCH/GARCH the residual variance) doesn't just answer the objection — it converts Stage V skepticism back into a Stage III engineering task, which is exactly the loop closing: <strong>V's question ("is this well-posed?") gets answered by handing a concrete construction back down to III ("here's what to measure to find out").</strong> That handoff — V interrogating the objective, III receiving a testable construction in return — may be the actual fifth operator this pentad was missing a name for.</p>
+  </div>
+
+  <div class="garch-note">
+    <strong>Open task, logged rather than resolved:</strong> before III_t+1 − III_t means anything, III needs an explicit, repeatable observable — not "did the vibe of the mapping feel forced," but something scored the same way twice by different readers. Candidates on the table but not yet chosen: (a) inter-rater agreement on stage-assignment across independent readers of the same artifact, scored and differenced pass over pass; (b) prediction accuracy — does the pentad, applied to a domain nobody has analyzed yet, generate a stage-V objective-function guess that a domain expert confirms or rejects; (c) compression — does forcing the five-stage structure onto a new domain shorten or lengthen the explanation relative to a domain-native account, as a cheap proxy for "is this doing real work or redescribing." Whichever is chosen, GARCH's actual contribution is modeling <em>volatility clustering</em> in that residual — periods where the pentad's error stays low, in fact, is Ukubona's own IV: reps of contributed to sessions where the schema fits well by past low error, and a spike after should raise the estimated variance for the next few applications rather than being treated as an independent draw. That's a real, specific claim GARCH makes that a flat threshold doesn't — worth building toward once the observable in (a)–(c) is chosen.
+  </div>
+</section>
+
+<section class="ledger" id="ledger">
   <h2>Append-only ledger</h2>
   <pre><span class="k">[SESSION]</span> Harmonic Analysis — "We Got Hood Love" (MJB ft. Trey Songz)
 <span class="k">Key:</span> B minor
@@ -1209,8 +1441,19 @@
 <span class="k">Convergence:</span> Move 37 = tolerable surprise (stage V); Levinthal's Paradox / energy-landscape topology = voice-leading gradient descent (stage III)
 <span class="k">Dream sequence (5:49am EAT, ~40min post-lock):</span> resonanceMax (memory fetch, keyed to day's held tension) → softMax (dream state, high T, two frames coexist) → argMax (waking, hardware interrupt not temperature decay — physiology overrides the loop rather than the loop converging on its own)
 <span class="k">Token ledger:</span> green scrubs = pre-2013 Hopkins layer, anachronistic retrieval (Hopkins moved to deep blue ~2013); race named directly (black man, white/muzungu woman) — asymmetry is in training-data reps, not abstraction; tumescence = the literal interrupt mechanism, not a euphemism for it; proximity script = held eye contact + closed distance + unused room to retreat, a specifically Western cue absent from the Ugandan-context dataset
-<span class="k">Framing:</span> geodesic constrained by voice-leading — gradient descent, low learning rate, recursive not repeating</pre>
-  <div class="status">Status: Locked</div>
+<span class="k">Framing:</span> geodesic constrained by voice-leading — gradient descent, low learning rate, recursive not repeating
+
+<span class="k">[SESSION 2]</span> Roundtable Trajectory — "Same question?" (Mearsheimer video × hood-love artifact)
+<span class="k">Prompt:</span> identical, handed sequentially — Grok → Gemini → GPT → Claude (G³+C, Ukubona house sequencing)
+<span class="k">Grok:</span> domain-mismatch conclusion; stopped at content-level comparison; no step taken through the search space
+<span class="k">Gemini:</span> reframed both as optimization under an objective function; named chromatic descent = gradient descent, escalation = iteration without defined victory condition; later produced Watson(III/fast)/Holmes(IV-V/deep) mapping
+<span class="k">GPT:</span> corrected III to "trajectory proposal under uncertainty," not reasoning itself; named uncertainty as first-class state variable; diagnosed Grok's failure as III-only architecture asked to perform IV/V behavior with no injected prior
+<span class="k">Claude:</span> entered at V — challenged pentad falsifiability (flexible-schema risk: fits everything, predicts nothing without a specified miss condition); supplied three concrete loss-function mechanisms for delayed-ground-truth systems (surrogate-loss recalibration, off-policy/counterfactual evaluation, belief-trajectory calibration penalty)
+<span class="k">Correction (human-in-loop):</span> schema is recursively falsifiable — error quantified at III on every t+1 pass, checked against a threshold; ARCH/GARCH proposed as the model family for that threshold, since it targets time-varying error variance directly
+<span class="k">Resolution, provisional:</span> ARCH/GARCH is the right family but requires an explicit observable at each III pass before a residual exists to model — candidate observables logged (inter-rater stage-assignment agreement; out-of-sample stage-V prediction accuracy; compression ratio vs. domain-native account) — none yet selected
+<span class="k">Speculative sixth operator:</span> V-interrogates-objective, III-receives-testable-construction-in-return, as the actual handoff a four-voice roundtable was missing a name for
+<span class="k">Status:</span> Open — awaiting observable selection before III_t+1 − III_t is a computable quantity</pre>
+  <div class="status">Status: Locked (Session 1) · Open (Session 2)</div>
 </section>
 
 <footer>
