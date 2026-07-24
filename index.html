@@ -373,6 +373,125 @@
   }
   details.entry .body strong { color: var(--ink); }
 
+  /* ---------- softMax -> argMax genre section ---------- */
+  .genre-section {
+    padding: 8vh 32px 2vh;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .genre-section h2 { font-size: 1.6rem; margin-bottom: 8px; }
+  .genre-section .sub { color: var(--ink-dim); margin-bottom: 3vh; max-width: 680px; }
+
+  .genre-explainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 5vh;
+  }
+  .genre-explainer .panel {
+    border: 1px solid var(--line);
+    background: var(--bg-elevated);
+    border-radius: 8px;
+    padding: 20px 22px;
+  }
+  .genre-explainer .panel .tag {
+    font-family: "SF Mono", Courier, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .genre-explainer .panel p {
+    color: var(--ink-dim);
+    font-size: 0.92rem;
+    margin: 0;
+  }
+  .genre-explainer .panel:last-child .tag { color: var(--violet); }
+
+  .softmax-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 3vh;
+  }
+  .softmax-stage {
+    border: 1px solid var(--line);
+    background: var(--bg-elevated);
+    border-radius: 8px;
+    padding: 20px 20px 16px;
+  }
+  .softmax-stage.argmax {
+    border-color: var(--violet);
+    box-shadow: 0 0 0 1px var(--violet) inset;
+  }
+  .stage-label {
+    font-family: "SF Mono", Courier, monospace;
+    font-size: 0.78rem;
+    color: var(--ink-dim);
+    margin-bottom: 18px;
+    min-height: 2.4em;
+  }
+  .softmax-stage.argmax .stage-label { color: var(--violet); }
+
+  .bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    height: 130px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0;
+  }
+  .bar-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    height: 100%;
+  }
+  .bar {
+    width: 100%;
+    max-width: 34px;
+    background: var(--gold);
+    border-radius: 3px 3px 0 0;
+    height: var(--h);
+    opacity: 0.55;
+    transition: height 0.3s ease;
+  }
+  .bar.peak {
+    background: var(--violet);
+    opacity: 1;
+  }
+  .bar-pct {
+    font-family: "SF Mono", Courier, monospace;
+    font-size: 0.62rem;
+    color: var(--ink-dim);
+    margin-bottom: 4px;
+  }
+  .bar-name {
+    font-size: 0.68rem;
+    color: var(--ink-dim);
+    margin-top: 8px;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+  .bar-col.peak-col .bar-name { color: var(--violet); font-weight: 600; }
+  .bar-col.peak-col .bar-pct { color: var(--violet); }
+
+  .genre-note {
+    padding: 20px 24px;
+    border-left: 3px solid var(--violet);
+    color: var(--ink-dim);
+    font-size: 0.95rem;
+    margin-top: 2vh;
+  }
+  .genre-note strong { color: var(--ink); }
+
+  @media (max-width: 640px) {
+    .softmax-grid, .genre-explainer { grid-template-columns: 1fr; }
+  }
+
   /* ---------- Ledger footer ---------- */
   .ledger {
     padding: 6vh 32px 10vh;
@@ -504,7 +623,7 @@
       <div class="note">G♯</div>
       <div class="info">
         <div class="chord-label">E7 / G♯</div>
-        <div class="roman">IV7, 1st inversion</div>
+        <div class="roman">IV7, 2nd inversion</div>
       </div>
     </div>
 
@@ -518,7 +637,7 @@
 <section class="loop-section">
   <div class="loop-inner">
     <h2>The full loop</h2>
-    <div class="loop-box"><span class="repeat">||:</span> i – V7(1st inv) – III(2nd inv) – IV7(1st inv)  |
+    <div class="loop-box"><span class="repeat">||:</span> i – V7(1st inv) – III(2nd inv) – IV7(2nd inv)  |
    iv – v – iv – III  |
    ii7♭5 – <span class="phrygian">V7 (Phrygian)</span>  <span class="repeat">:||</span></div>
 
@@ -580,6 +699,57 @@
       A true circle-of-fifths cadence moves by descending fifths as its primary motion. Here the primary motion is chromatic/stepwise in the bass; the ii7♭5–V7–i is a local cadential gesture grafted onto that stepwise skeleton, not the whole progression being fifths-driven. Better described as a geodesic constrained by voice-leading: each chord minimizes local movement while maximizing tension held in reserve for the cadence — gradient descent with a low learning rate, small legitimate steps rather than jumps, recursive rather than merely repeating, since each resolution seeds the next descent instead of landing on a stable plateau.
     </div>
   </details>
+
+  <details class="entry">
+    <summary>Gap flagged — genre as inference, not label <span class="plus">+</span></summary>
+    <div class="body">
+      Everything above analyzed the progression as if genre were given. It isn't — the ii7♭5–V7–i skeleton is shared vocabulary across jazz, gospel, flamenco, and classical harmony; nothing in the symbols alone forces "R&B." Genre is what a trained ear infers from texture layered on top of a genre-agnostic structure — closer to a softmax collapsing to an argmax than a fixed label. See the dedicated section below.
+    </div>
+  </details>
+</section>
+
+<section class="genre-section">
+  <h2>softMax → argMax: genre as classification</h2>
+  <p class="sub">The chord vocabulary in this loop — ii7♭5, altered V7, chromatic mediants — is genre-agnostic on paper. It belongs equally to jazz, gospel, flamenco, and classical harmony. Genre isn't in the symbols. It's in what a trained ear does with them: it runs inference.</p>
+
+  <div class="genre-explainer">
+    <div class="panel">
+      <div class="tag">softMax — the held state</div>
+      <p>Early in the progression, before texture and timbre commit, the ear holds a live probability distribution across genre labels. The ii7♭5–V7–i skeleton alone can't disambiguate — Bill Evans, a Baptist choir, and a Sevillano guitarist all reach for the same shape. Entropy is high on purpose.</p>
+    </div>
+    <div class="panel">
+      <div class="tag">argMax — the committed state</div>
+      <p>At the cadence, texture supplies the missing logits: the flamenco-lite arpeggio attack, the 63 BPM pocket, the vocal delivery, the ♭9 voicing. The distribution collapses to a single label. The listener doesn't hear probabilities — they hear "R&B," instantly and irreversibly.</p>
+    </div>
+  </div>
+
+  <div class="softmax-grid">
+    <div class="softmax-stage">
+      <div class="stage-label">i — Bm (root, bar 1)<br>skeleton alone, no texture cues yet</div>
+      <div class="bars">
+        <div class="bar-col"><div class="bar-pct">24%</div><div class="bar" style="--h:48%"></div><div class="bar-name">Gospel</div></div>
+        <div class="bar-col"><div class="bar-pct">22%</div><div class="bar" style="--h:44%"></div><div class="bar-name">Jazz</div></div>
+        <div class="bar-col"><div class="bar-pct">21%</div><div class="bar" style="--h:42%"></div><div class="bar-name">Flamenco</div></div>
+        <div class="bar-col"><div class="bar-pct">18%</div><div class="bar" style="--h:36%"></div><div class="bar-name">R&B</div></div>
+        <div class="bar-col"><div class="bar-pct">15%</div><div class="bar" style="--h:30%"></div><div class="bar-name">Classical</div></div>
+      </div>
+    </div>
+    <div class="softmax-stage argmax">
+      <div class="stage-label">ii7♭5 – V7(Phrygian) – i<br>cadence, full texture present</div>
+      <div class="bars">
+        <div class="bar-col peak-col"><div class="bar-pct">71%</div><div class="bar peak" style="--h:100%"></div><div class="bar-name">R&B</div></div>
+        <div class="bar-col"><div class="bar-pct">14%</div><div class="bar" style="--h:20%"></div><div class="bar-name">Gospel</div></div>
+        <div class="bar-col"><div class="bar-pct">8%</div><div class="bar" style="--h:11%"></div><div class="bar-name">Flamenco</div></div>
+        <div class="bar-col"><div class="bar-pct">4%</div><div class="bar" style="--h:6%"></div><div class="bar-name">Jazz</div></div>
+        <div class="bar-col"><div class="bar-pct">3%</div><div class="bar" style="--h:4%"></div><div class="bar-name">Classical</div></div>
+      </div>
+    </div>
+  </div>
+  <p class="video-caption" style="text-align:center;margin-top:-1vh;margin-bottom:3vh;">Illustrative distribution, not measured — the shape of the claim, not a fitted model.</p>
+
+  <div class="genre-note">
+    <strong>The UI/UX layer nobody names:</strong> a "trained ear" is just a classifier with a sharper decision boundary from more training data — years of genre exposure instead of labeled examples. That's why a novice and a specialist can hear the identical four bars and land in different places: the novice's softmax stays flatter for longer, genuinely uncertain between gospel and R&B; the specialist's argmax fires almost immediately off cues too small to consciously name — the exact grain of the guitar attack, a vocal ad-lib placement, a mix decision. The composer isn't just writing chords. They're designing the logits — deciding how long to hold the audience in genre-ambiguity before letting specific texture resolve it, and for which audience's decision boundary. That's the same design problem as any UI that has to decide how much ambiguity to tolerate before it forces a commit.
+  </div>
 </section>
 
 <section class="ledger">
@@ -593,6 +763,7 @@
 <span class="k">Melody:</span> anchored on F♯ (5th of tonic), B minor pentatonic frame, color tones passing only
 <span class="k">Modal color:</span> Aeolian on descent; Phrygian dominant confined to cadential V7, ♭6/♭13 trace bleeds into tonic
 <span class="k">Tradition:</span> gospel ii–V–i + soul chromatic bass + flamenco altered dominant + jazz reharmonization
+<span class="k">Classification:</span> chord skeleton is genre-agnostic (shared jazz/gospel/flamenco/classical vocabulary) — genre resolves via texture as softMax→argMax; trained ear = sharper decision boundary, not different priors
 <span class="k">Framing:</span> geodesic constrained by voice-leading — gradient descent, low learning rate, recursive not repeating</pre>
   <div class="status">Status: Locked</div>
 </section>
