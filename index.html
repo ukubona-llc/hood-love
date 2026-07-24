@@ -568,6 +568,78 @@
   .prow:nth-child(4) { --p-color: var(--gold); }
   .prow:nth-child(5) { --p-color: var(--violet); }
 
+  /* ---------- Hassabis triad -> pentad section ---------- */
+  .hassabis-section {
+    padding: 8vh 32px 2vh;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .hassabis-section h2 { font-size: 1.6rem; margin-bottom: 8px; }
+  .hassabis-section .sub { color: var(--ink-dim); margin-bottom: 4vh; max-width: 680px; }
+
+  .triad-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 5vh;
+  }
+  .triad-item {
+    border: 1px solid var(--line);
+    background: var(--bg-elevated);
+    border-radius: 8px;
+    padding: 18px 18px 16px;
+  }
+  .triad-item .num {
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+  }
+  .triad-item p {
+    font-size: 0.88rem;
+    color: var(--ink-dim);
+    margin: 0;
+  }
+
+  .convergence-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin: 5vh 0;
+  }
+  .convergence-card {
+    border: 1px solid var(--line);
+    background: var(--bg-elevated);
+    border-radius: 8px;
+    padding: 22px 22px 20px;
+    border-top: 3px solid var(--teal-h, var(--gold));
+  }
+  .convergence-card:nth-child(2) { --teal-h: var(--violet); }
+  .convergence-card .ctag {
+    font-family: "SF Mono", Courier, monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-dim);
+    margin-bottom: 10px;
+  }
+  .convergence-card h4 {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: 1.05rem;
+    margin: 0 0 10px;
+  }
+  .convergence-card p {
+    font-size: 0.9rem;
+    color: var(--ink-dim);
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .triad-strip, .convergence-pair { grid-template-columns: 1fr; }
+  }
+
   /* ---------- Ledger footer ---------- */
   .ledger {
     padding: 6vh 32px 10vh;
@@ -901,6 +973,83 @@
   </div>
 </section>
 
+<section class="hassabis-section">
+  <h2>On Hassabis: why his triad became our pentad</h2>
+  <p class="sub">In his 2024 Nobel Lecture, Demis Hassabis names three criteria for what qualifies as a suitable problem for AI. Every stage of this archive's pentad — the harmonic descent, the softMax→argMax collapse, the re-run as prediction — has been living inside two of his three boxes the whole time. Worth naming exactly where the frames meet, and where a Musoga-American ear steeped in gospel insisted on two more stages he didn't need.</p>
+
+  <div class="triad-strip">
+    <div class="triad-item">
+      <div class="num">1</div>
+      <p>Massive combinatorial search space</p>
+    </div>
+    <div class="triad-item">
+      <div class="num">2</div>
+      <p>Clear objective function (metric) to optimise against</p>
+    </div>
+    <div class="triad-item">
+      <div class="num">3</div>
+      <p>Lots of data and/or an accurate, efficient simulator</p>
+    </div>
+  </div>
+
+  <div class="prow">
+    <div class="prow-num">II</div>
+    <div class="prow-main">
+      <div class="prow-title"><span class="music">12TET / chromaticity</span><span class="arrow">↔</span><span class="comp">Hassabis criterion 1</span></div>
+      <div class="prow-note">Direct match. Twelve semitones, any voicing, any inversion — the same order-of-magnitude problem as 10^170 Go positions. Both traditions independently arrive at: don't search it, compress it.</div>
+    </div>
+  </div>
+
+  <div class="prow">
+    <div class="prow-num">IV</div>
+    <div class="prow-main">
+      <div class="prow-title"><span class="music">Years in church, gospel, R&B</span><span class="arrow">↔</span><span class="comp">Hassabis criterion 3</span></div>
+      <div class="prow-note">Direct match. "Real or simulated" data is exactly reps — Sunday after Sunday, call-and-response under communal pressure, the same as AlphaGo's self-play. Training data, not talent, is what the criterion is actually naming.</div>
+    </div>
+  </div>
+
+  <div class="prow">
+    <div class="prow-num">V</div>
+    <div class="prow-main">
+      <div class="prow-title"><span class="music">Objective function of a genre</span><span class="arrow">↔</span><span class="comp">Hassabis criterion 2</span></div>
+      <div class="prow-note">Direct match. "Clear objective function to optimise against" is what "tolerable surprise" is trying to name in musical language — a metric, just not a scalar he'd recognize as one.</div>
+    </div>
+  </div>
+
+  <div class="prow">
+    <div class="prow-num">III</div>
+    <div class="prow-main">
+      <div class="prow-title"><span class="music">Voice-leading, gradient descent</span><span class="arrow">≠</span><span class="comp">not a Hassabis criterion — folded in</span></div>
+      <div class="prow-note">This is where the frames genuinely part. Hassabis's own "making search tractable" slide collapses this into infrastructure: "learn a model, use it to guide a search." For a checklist deciding whether AlphaFold gets built, that's correct — the path is a consequence, not a precondition. For a gospel/R&B ear, the path is the whole event. The chromatic descent isn't a means to the cadence; sitting inside the fall, bar by bar, is the music. Stage III exists in this pentad because the tradition it comes from refuses to compress the traversal into a footnote.</div>
+    </div>
+  </div>
+
+  <div class="prow">
+    <div class="prow-num">I</div>
+    <div class="prow-main">
+      <div class="prow-title"><span class="music">Hz (B3), A4 = 440</span><span class="arrow">≠</span><span class="comp">not a Hassabis criterion — assumed</span></div>
+      <div class="prow-note">The second place the frames part. Hassabis never needs to name the starting coordinate because for problem-selection purposes any embedding will do — it's plumbing, not a gate. But a tradition built on a fixed congregational pitch, a hymn started in the key the room can actually sing, treats the reference point as load-bearing: change B3 and the whole felt gravity of the descent changes with it. Where he sees infrastructure, we see the first commitment.</div>
+    </div>
+  </div>
+
+  <div class="convergence-pair">
+    <div class="convergence-card">
+      <div class="ctag">Convergence · I</div>
+      <h4>Move 37 as tolerable surprise</h4>
+      <p>Hassabis doesn't just say AlphaGo won — he says it "didn't just win, came up with novel creative strategies (Move 37)." That's the objective function of a genre in different vocabulary: not maximal predictability, not maximal novelty, but surprise held inside a band the audience — human Go masters, in his case — can still recognize as beautiful rather than incomprehensible. Stage V's "hooks" and Move 37 are the same phenomenon wearing different clothes.</p>
+    </div>
+    <div class="convergence-card">
+      <div class="ctag">Convergence · II</div>
+      <h4>Levinthal's Paradox as voice-leading</h4>
+      <p>His own slide: ~10^300 possible conformations, yet proteins fold in milliseconds — "must mean there's some topology in the energy landscape that guides the folding process." That sentence is a description of stage III without the vocabulary for it. The chromatic bass descent is exactly this: a topology in the harmonic landscape that makes B→A♯→A→G♯ feel inevitable rather than searched. Gradient descent, low learning rate — nature and tradition both already know the path; neither enumerates.</p>
+    </div>
+  </div>
+
+  <div class="genre-note">
+    <strong>The actual disagreement, stated plainly:</strong> a triad is a gate-keeping instrument — three yes/no questions that decide whether a problem is worth building a system for. A pentad is a phenomenological instrument — five stages that describe what it's like to be inside the system once it's running. Hassabis needed a triad because Cambridge-trained AI architecture asks "is this tractable," and once the answer is yes, the path taken and the coordinate started from are implementation detail. Ukubona insists on a pentad because a tradition formed in call-and-response under communal pressure — where the fall itself is the sermon, not just the altar call at the end — was never asking whether the problem was tractable. It already knew it was, every Sunday, for generations. It was asking what it feels like to be carried through it. Neither triad nor pentad is more correct. They're answering different questions, and the extra two stages are where a Musoga-American gospel ear insisted the felt experience of the descent counts as data too.
+  </div>
+</section>
+
 <section class="ledger">
   <h2>Append-only ledger</h2>
   <pre><span class="k">[SESSION]</span> Harmonic Analysis — "We Got Hood Love" (MJB ft. Trey Songz)
@@ -914,6 +1063,8 @@
 <span class="k">Tradition:</span> gospel ii–V–i + soul chromatic bass + flamenco altered dominant + jazz reharmonization
 <span class="k">Classification:</span> chord skeleton is genre-agnostic (shared jazz/gospel/flamenco/classical vocabulary) — genre resolves via texture as softMax→argMax; trained ear = sharper decision boundary, not different priors
 <span class="k">Pentad re-run:</span> I Hz/point → II 12TET/combinatorial explosion (reflex,heuristics,cache,rules,index) → III voice-leading/gradient descent, low LR → IV tradition/training data → V genre objective = next-token prediction under tolerable surprise
+<span class="k">Hassabis (Nobel Lecture, 8 Dec 2024):</span> triad = {search space, objective function, data/simulator} maps onto pentad {II, V, IV}; III (path) and I (reference point) are the two stages a checklist doesn't need but a lived tradition does
+<span class="k">Convergence:</span> Move 37 = tolerable surprise (stage V); Levinthal's Paradox / energy-landscape topology = voice-leading gradient descent (stage III)
 <span class="k">Framing:</span> geodesic constrained by voice-leading — gradient descent, low learning rate, recursive not repeating</pre>
   <div class="status">Status: Locked</div>
 </section>
